@@ -1,4 +1,4 @@
-# [SHOP ONE](https://rocky-river-5952.herokuapp.com/)
+# [SHOP ONE](https://sheltered-hamlet-8524.herokuapp.com/)
 
 **Shop One** was created by RubySquad team (Dnipropetrovsk) during [ItBursa Ruby on Rails cources](http://rubybursa.com/).
 
@@ -8,8 +8,8 @@
 2. Rails version  - 4.2.3
 3. It uses **rspec-rails** instead of default unit-test
 4. It uses **PostgreSQL** both for prodaction and development
-5. GitHub: https://github.com/RubySquad/the_shop
-6. Heroku: https://rocky-river-5952.herokuapp.com/
+5. GitHub: https://github.com/RubySquad/shop_one
+6. Heroku: https://sheltered-hamlet-8524.herokuapp.com/
 
 
 ## Project description
