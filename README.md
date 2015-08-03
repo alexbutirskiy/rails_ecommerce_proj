@@ -1,6 +1,6 @@
-# [THE SHOP](https://desolate-sea-6265.herokuapp.com/)
+# [SHOP ONE](https://rocky-river-5952.herokuapp.com/)
 
-**The Shop** was created by RubySquad team (Dnipropetrovsk) during [ItBursa Ruby on Rails cources](http://rubybursa.com/).
+**Shop One** was created by RubySquad team (Dnipropetrovsk) during [ItBursa Ruby on Rails cources](http://rubybursa.com/).
 
 ## Project notes
 
@@ -9,11 +9,11 @@
 3. It uses **rspec-rails** instead of default unit-test
 4. It uses **PostgreSQL** both for prodaction and development
 5. GitHub: https://github.com/RubySquad/the_shop
-6. Heroku: https://desolate-sea-6265.herokuapp.com/
+6. Heroku: https://rocky-river-5952.herokuapp.com/
 
 
 ## Project description
-The aim of this project is creating an on-line store this smart modern design. **The shop** should provide ...
+The aim of this project is creating an on-line store this smart modern design. **Shop One** should provide ...
 
 ## ToDo
 1. Task 1 (HW6)
