@@ -9,7 +9,7 @@
 | name         | string | Имя                                            |
 | surname      | string | Фамилия                                        |
 | email        | string | Адрес электронной почты                        |
-| passw        | string | Пароль                                         |
+| password     | string | Пароль                                         |
 | role         | string | Роль пользователя ('client' | 'manager')       |
 
 
@@ -30,7 +30,7 @@
 | Field        | Type     |  Description                                   |
 |:------------:|:---------|:-----------------------------------------------|
 | id           |          |                                                |
-| product_id   | reference| Ссылка на products                             |
-| user_id      | reference| Ссылка на users                                |
+| product      | reference| Ссылка на products                             |
+| user         | reference| Ссылка на users                                |
 | count        | integer  | Количество                                     |
 | status       | integer  | Статус ('In progress' 'Accepted' 'Closed')     |
