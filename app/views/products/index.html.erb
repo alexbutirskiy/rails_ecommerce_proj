@@ -4,6 +4,7 @@
 		<th>Name</th>
 		<th>Price</th>
 		<th>Quantity</th>
+		<th></th>
 	</tr>
 
 	<% @items.each do |i| %>
@@ -12,6 +13,7 @@
 			<td><%= link_to i.name, product_path(i) %></td>
 			<td><%= i.price %></td>
 			<td><%= i.count %></td>
+			<td><%= link_to "Delete", product_path(i), method: :delete, data: { confirm: "Are you sure you want to delete this item?" } %></td>
 		</tr>
 
 	<% end %>

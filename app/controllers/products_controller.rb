@@ -44,9 +44,10 @@ class ProductsController < ApplicationController
 		end
 	end
 
-
-
 	def destroy
+		@item = Product.find(params[:id])
+		@item.destroy
+		redirect_to action: "index"
 	end
 
 	private
