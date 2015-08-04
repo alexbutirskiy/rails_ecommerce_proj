@@ -46,5 +46,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-erd', require: false
   gem 'rubocop', require: false
+  gem 'factory_girl_rails'
 end
 

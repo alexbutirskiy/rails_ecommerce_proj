@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  before { @user = User.new }
+  before { @user = create(:user) }
 
   subject { @user }
 
@@ -11,4 +11,5 @@ RSpec.describe User, type: :model do
   it { should respond_to(:password) }
   it { should respond_to(:role) }
 
+  
 end
