@@ -26,13 +26,13 @@ RSpec.describe ProductsController, type: :controller do
 		end
 	end
 
-		describe "destroy action" do
-			it 'redirects to index action when a product is destroyed succesfully' do
-				product = create(:product)
-				delete :destroy, id: product.id
-				response.should redirect_to(product_path)
-			end
-		end
+#		describe "destroy action" do
+#			it 'redirects to index action when a product is destroyed succesfully' do
+#				product = create(:product)
+#				delete :destroy, id: product.id
+#				response.should redirect_to(product_path)
+#			end
+#		end
 
 		before(:each) do
   		@product = create(:product)
