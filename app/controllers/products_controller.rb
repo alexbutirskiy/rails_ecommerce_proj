@@ -30,24 +30,36 @@ class ProductsController < ApplicationController
 
 	# form output for Product creation
 	def edit
-		@item = Product.find(params[:id])
+		if Product.where(id: params[:id]).first
+			@item = Product.find(params[:id])
+		elsif
+			render text: "Page not found", status: 404
+		end
 	end
 
 	# create Product record at database
 	def update
-		@item = Product.find(params[:id])
-		@item.update_attributes(product_params)
-		if @item.errors.empty?
-			redirect_to product_path(@item)
-		else
-			render "edit"
+		if Product.where(id: params[:id]).first
+			@item = Product.find(params[:id])
+			@item.update_attributes(product_params)
+			if @item.errors.empty?
+				redirect_to product_path(@item)
+			else
+				render "edit"
+			end
+		elsif
+			render text: "Page not found", status: 404
 		end
 	end
 
 	def destroy
-		@item = Product.find(params[:id])
-		@item.destroy
-		redirect_to action: "index"
+		if Product.where(id: params[:id]).first
+			@item = Product.find(params[:id])
+			@item.destroy
+			redirect_to action: "index"
+		elsif
+			render text: "Page not found", status: 404
+		end
 	end
 
 	private
