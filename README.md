@@ -17,7 +17,6 @@ The aim of this project is creating an on-line store this smart modern design. *
 
 ## ToDo
 1. Task 1 (HW6)
-  - [ ] Describe project
   - [x] Create database
   - [x] Deploy on [Heroku](https://www.heroku.com/)
   - [x] Integrate project to [Travis CI](https://travis-ci.com/)
