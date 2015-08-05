@@ -16,7 +16,7 @@ RSpec.describe ProductsController, type: :controller do
 
 	describe "create action" do
 		it "redirect to product page if validations pass" do
-			post :create, product: {name: "Product 1", price: 10, count: 1}, id: 33
+			post :create, product: {name: "Product 1", price: 10, count: 1}
 			response.should redirect_to(product_path(assigns(:item)))
 		end
 
@@ -32,6 +32,26 @@ RSpec.describe ProductsController, type: :controller do
 				delete :destroy, id: product.id
 				response.should redirect_to(product_path)
 			end
+		end
+
+		before(:each) do
+  		@product = create(:product)
+		end
+
+		describe "update action" do
+  		let(:attr) do 
+    	{ :name => 'new product', :price => 20.0, :count => 2}
+  		end
+
+  		before(:each) do
+   			put :update, :id => @product.id, :product => attr
+    		@product.reload
+  		end
+
+  		it { expect(response).to redirect_to(product_path(assigns(:item))) }
+  		it { expect(@product.name).to eql attr[:name] }
+  		it { expect(@product.price).to eql attr[:price] }
+  		it { expect(@product.count).to eql attr[:count] }
 		end
 
 end
