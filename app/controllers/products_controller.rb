@@ -44,8 +44,8 @@ class ProductsController < ApplicationController
 
 	def destroy
 		@item.destroy
-#		redirect_to action: "index"
-    redirect_to products_path
+		redirect_to action: "index"
+#    redirect_to products_path
 	end
 
 	private
