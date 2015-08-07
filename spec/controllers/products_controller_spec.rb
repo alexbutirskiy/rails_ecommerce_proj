@@ -30,7 +30,7 @@ RSpec.describe ProductsController, type: :controller do
 			it 'redirects to index action when a product is destroyed succesfully' do
 				product = create(:product)
 				delete :destroy, id: product.id
-				expect(response).to redirect_to(products_path)
+				expect(response).to redirect_to(root_path)
 			end
 		end
 
