@@ -51,5 +51,6 @@ group :development, :test do
   gem 'rails-erd', require: false
   gem 'rubocop', require: false
   gem 'factory_girl_rails'
+  gem 'better_errors'
 end
 
