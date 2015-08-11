@@ -19,8 +19,13 @@
         <li><%= link_to "New item", '/products/new' %></li>
       </ul>
       <ul class="nav navbar-nav pull-right">
-        <li><%= link_to "Sign in", '#' %></li>
-        <li><%= link_to "Register", '#' %></li>
+        <% if user_signed_in? %>
+          <li><%= link_to "Account", edit_user_registration_path %></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign in", new_user_session_path %></li>
+          <li><%= link_to "Register", new_user_registration_path %></li>
+        <% end %>
         <li><%= link_to "Cart", '#' %></li>
       </ul>
     </nav>
@@ -33,6 +38,10 @@
 
 <div class="center">
   <div class="main_field">
+
+  <% flash.each do |name, msg| %>
+    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+  <% end %>
 
   <%= yield %>
 
