@@ -26,6 +26,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 3.5.2'
 
+#It's not release version which supports Rails 4
+gem 'activeadmin', '~> 1.0.0.pre1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -51,5 +54,6 @@ group :development, :test do
   gem 'rails-erd', require: false
   gem 'rubocop', require: false
   gem 'factory_girl_rails'
+  gem 'better_errors'
 end
 
