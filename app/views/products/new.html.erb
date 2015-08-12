@@ -1,5 +1,6 @@
 <h2>Create new product</h2>
 
+<div class="productList">
 <%= form_for @item do |f| %>
 
 	<p>Product name:<br/><%= f.text_field :name %></p>
@@ -9,3 +10,4 @@
 	<p><%= f.submit "Create product" %></p>
 
 <% end %>
+</div>
