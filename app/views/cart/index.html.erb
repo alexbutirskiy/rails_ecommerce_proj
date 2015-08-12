@@ -20,9 +20,9 @@
  
   <tr>
     <td><%= link_to product.name, product%></td>
-    <td><%= number_to_currency(product.price, :unit => '$') %></td>
+    <td><%= number_to_currency(product.price, unit: 'грн.', format: '%n %u') %></td>
     <td><%= quantity%></td>
-    <td><%= number_to_currency(quantity * product.price, :unit => '$')%></td>
+    <td><%= number_to_currency(quantity * product.price, unit: 'грн.', format: '%n %u')%></td>
   </tr>
   <% total += quantity * product.price %>
 
@@ -30,9 +30,9 @@
 
 <tfoot>
   <tr>
-    <td colspan="3">Total: </td>
+    <td colspan="3"><strong class="text-align: right">Total:</strong> </td>
     <td>
-      <b><%= number_to_currency(total, :unit => '$')%></b>
+      <b><%= number_to_currency(total, unit: 'грн.', format: '%n %u')%></b>
     </td>
   </tr>
 </tfoot>

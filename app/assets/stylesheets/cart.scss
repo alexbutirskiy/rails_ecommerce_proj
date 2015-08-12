@@ -9,6 +9,7 @@
   margin-right:auto;
   margin-top: 20px;
   background: #f5f5f5;
+  width: auto;
 
   th{
     border: 0px solid;
@@ -22,9 +23,22 @@
   tr:nth-child(even){
     background: #f9f9f9;
   }
+  tr:last-child {
+    
+  }
 
   td {
     font-size: 16px;
+    text-align: center;
   }
 
 }
+
+tfoot {
+  tr{
+    td{
+      padding-top: 20px;
+    }
+  }
+}
+
