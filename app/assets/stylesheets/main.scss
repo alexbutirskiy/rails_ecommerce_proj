@@ -3,6 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap";
 
+body {
+  background: #eef;
+}
+
 .navbar-inner {
   margin-left: auto;
   margin-right: auto;
@@ -10,6 +14,7 @@
 }
 
 .head {
+  font-size: 20px;
   padding: 20px;
 }
 
@@ -35,8 +40,15 @@
   border-top: 1px solid #ccc;
   text-align: right;
   font-size: 12px;
-  font-color: #fff;
+  color: #555;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  a {
+    color: #555;
+    text-decoration: none;
+    &:hover {
+      font-weight: bold;
+    }
+  }
 }

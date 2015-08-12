@@ -14,7 +14,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.raise_delivery_errors = false
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -36,10 +36,33 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
 
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  # # Raises error for missing translations
+  # # config.action_view.raise_on_missing_translations = true
+
+  # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
+  # Raises error for missing translations
+  config.action_view.raise_on_missing_translations = true
+  config.action_mailer.raise_delivery_errors = true
+
+  #See these usefull links:
+  #https://rubyonrailshelp.wordpress.com/2014/01/02/\
+  #setting-up-mailer-using-devise-for-forgot-password/
+  #https://devcenter.heroku.com/articles/config-vars#local-setup
+  config.action_mailer.default_url_options = { host: 'rocky-river-5952.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'heroku.com',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD']
+  }
+
 end
