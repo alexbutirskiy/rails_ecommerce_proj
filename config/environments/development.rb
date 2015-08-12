@@ -38,31 +38,31 @@ Rails.application.configure do
 
 
 
-  # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
-
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
-
   # # Raises error for missing translations
-  # config.action_view.raise_on_missing_translations = true
-  # config.action_mailer.raise_delivery_errors = true
+  # # config.action_view.raise_on_missing_translations = true
 
-  # #See these usefull links:
-  # #https://rubyonrailshelp.wordpress.com/2014/01/02/\
-  # #setting-up-mailer-using-devise-for-forgot-password/
-  # #https://devcenter.heroku.com/articles/config-vars#local-setup
   # config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
   # config.action_mailer.delivery_method = :smtp
-  # config.action_mailer.smtp_settings = {
-  #   address: "smtp.gmail.com",
-  #   port: 587,
-  #   domain: ENV["SHOP_ONE_GMAIL_DOMAIN"],
-  #   authentication: "plain",
-  #   enable_starttls_auto: true,
-  #   user_name: ENV["SHOP_ONE_GMAIL_USERNAME"],
-  #   password: ENV["SHOP_ONE_GMAIL_PASSWORD"]
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
+  # Raises error for missing translations
+  config.action_view.raise_on_missing_translations = true
+  config.action_mailer.raise_delivery_errors = true
+
+  #See these usefull links:
+  #https://rubyonrailshelp.wordpress.com/2014/01/02/\
+  #setting-up-mailer-using-devise-for-forgot-password/
+  #https://devcenter.heroku.com/articles/config-vars#local-setup
+  config.action_mailer.default_url_options = { host: 'rocky-river-5952.herokuapp.com' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: 'smtp.sendgrid.net',
+    port: 587,
+    domain: 'heroku.com',
+    authentication: 'plain',
+    enable_starttls_auto: true,
+    user_name: ENV['SENDGRID_USERNAME'],
+    password: ENV['SENDGRID_PASSWORD']
   }
 
 end
