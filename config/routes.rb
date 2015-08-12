@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/cart/clear' => 'cart#clear_cart'
   get '/cart/:id' => 'cart#add'
 
+  devise_for :users
   get 'main/index'
   root 'products#index'
 
