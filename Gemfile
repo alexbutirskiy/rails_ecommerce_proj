@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.2'  #Heroku asks to add ruby version
+ruby '2.2.2'  # Heroku asks to add ruby version
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.3'
@@ -27,8 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 3.5.2'
 
-#It's not release version which supports Rails 4
+# It's not release version which supports Rails 4
 gem 'activeadmin', '~> 1.0.0.pre1'
+
+gem 'paperclip'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
