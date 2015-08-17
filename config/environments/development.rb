@@ -65,4 +65,6 @@ Rails.application.configure do
   #   password: ENV['SENDGRID_PASSWORD']
   # }
 
+Paperclip.options[:command_path] = '/usr/bin/convert'
+
 end
