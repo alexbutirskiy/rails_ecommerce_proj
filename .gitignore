@@ -20,3 +20,6 @@
 .rubocop.yml
 .rubocop_todo.yml
 .env
+
+# Ignore local images for paperclip
+/public/system/products/images/*

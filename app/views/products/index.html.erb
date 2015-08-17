@@ -1,6 +1,7 @@
 <table class="productList">
 	
 	<tr >
+		<th>Image</th>
 		<th>Name</th>
 		<th>Price</th>
 		<th>Quantity</th>
@@ -9,6 +10,7 @@
 	<% @items.each do |i| %>
 
 		<tr>
+			<td><%= image_tag(i.image.url(:thumb)) %></td>
 			<td><%= link_to i.name, product_path(i) %></td>
 			<td><%= i.price %></td>
 			<td><%= i.count %></td>

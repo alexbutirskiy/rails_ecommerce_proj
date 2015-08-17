@@ -9,6 +9,7 @@
 
 <table class="Cart">
 <tr>
+  <th>Image</th>
   <th>Name</th>
   <th>Price</th>
   <th>Quantity</th>
@@ -19,6 +20,7 @@
   <% product = Product.find_by_id(id)%>
  
   <tr>
+    <td><%= image_tag(product.image.url(:thumb)) %></td>
     <td><%= link_to product.name, product%></td>
     <td><%= number_to_currency(product.price, unit: 'грн.', format: '%n %u') %></td>
     <td><%= quantity%></td>
@@ -30,7 +32,7 @@
 
 <tfoot>
   <tr>
-    <td colspan="3"><strong class="text-align: right">Total:</strong> </td>
+    <td colspan="4"><strong class="text-align: right">Total:</strong> </td>
     <td>
       <b><%= number_to_currency(total, unit: 'грн.', format: '%n %u')%></b>
     </td>

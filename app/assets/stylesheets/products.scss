@@ -28,6 +28,7 @@
   td {
     font-size: 16px;
     text-align: center;
+    vertical-align: middle;
   }
   form {
     margin-left:auto; 
@@ -38,6 +39,8 @@
       padding: 5px;
       margin: 5px;
       font-size: 16px;
+    }
+    input.file {
     }
   }
 }
