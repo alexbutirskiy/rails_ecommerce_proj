@@ -1,18 +1,80 @@
-<table class="productList">
-	
-	<tr >
-		<th>Name</th>
-		<th>Price</th>
-		<th>Quantity</th>
-	</tr>
 
-	<% @items.each do |i| %>
+<div class="product_sequence">
+	<ul>
+	<% @category_seq.each do |c|%>
+		<%= " > "if c.id != 1 %>
+		<li> <%= link_to "#{c.name}", products_path(category: c.id) %></li>
+	<% end %>
+	</ul>
+</div>
 
-		<tr>
-			<td><%= link_to i.name, product_path(i) %></td>
-			<td><%= i.price %></td>
-			<td><%= i.count %></td>
+<aside class="left-side">
+<!--  Just a wireframe -->
+	<h3>Категория</h3>
+	<ul>
+
+	<% @categories.each do |c| %>
+		<li> <%=  link_to "#{c.name}", products_path(category: c.id) %> </li>
+	<% end %>
+
+<!--	
+		<li> <%=  link_to "Категория 1" %> </li>
+		<li> <%=  link_to "Категория 2" %> </li>
+		<li> <%=  link_to "Категория 3" %> </li>
+-->
+	</ul>
+
+	<h3>Фильтры</h3>
+
+	<h4>Производитель</h4>
+	<%= check_box_tag(:producer_all) %>
+	<%= label_tag(:producer_all, "Выделить все") %>
+
+	<%= check_box_tag(:producer1) %>
+	<%= label_tag(:producer1, "Производитель 1") %>
+
+	<%= check_box_tag(:producer2) %>
+	<%= label_tag(:producer2, "Производитель 2") %>
+
+	<%= check_box_tag(:producer3) %>
+	<%= label_tag(:producer3, "Производитель 3") %>
+
+
+
+	<h4>Магазин</h4>
+	<%= check_box_tag(:store_all, 'store_all', true, class: 'semi_accepted') %>
+	<%= label_tag(:store_all, "Выделить все") %>
+
+	<%= check_box_tag(:store1, 'store1', true) %>
+	<%= label_tag(:store1, "Магазин 1") %>
+
+	<%= check_box_tag(:store2, 'store2', true) %>
+	<%= label_tag(:store2, "Магазин 2") %>
+
+	<%= check_box_tag(:store3, 'store3', true) %>
+	<%= label_tag(:store3, "Магазин 3") %>
+
+</aside>
+
+
+<div class="items">
+
+	<table class="productList">
+		<tr >
+			<th>Name</th>
+			<th>Price</th>
+			<th>Quanty</th>
 		</tr>
 
-	<% end %>
-</table>
+		<% @items.each do |i| %>
+
+			<tr>
+				<td><%= link_to i.name, product_path(i) %></td>
+				<td><%= link_to i.price, product_path(i) %></td>
+				<td><%= link_to i.count, product_path(i) %></td>
+			</tr>
+
+		<% end %>
+	</table>
+
+</div>

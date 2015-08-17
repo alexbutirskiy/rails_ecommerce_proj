@@ -16,11 +16,12 @@ ActiveAdmin.register Product do
 
   menu label: "Товары", priority: 2
 
-  permit_params :name, :price, :count
+  permit_params :name, :price, :count, :category_id
 
   index :title => 'Товары' do
     selectable_column
     column "Наименование",        :name
+    column "Категория",           :category
     column "Цена",                :price
     column "Кол-во в наличии",    :count
     column "Последнее изменение", :updated_at
@@ -31,6 +32,7 @@ ActiveAdmin.register Product do
   form do |f|
     inputs "Свойства товара" do
       f.input :name,  label: "Наименование"
+      f.input :category,  label: "Категория"
       f.input :price, label: "Цена"
       f.input :count, label: "Кол-во в наличии"
     end

@@ -5,7 +5,27 @@ class ProductsController < ApplicationController
 
 	# output list of Products
 	def index
-		@items = Product.all
+    category = params[:category]
+    category = category == nil ? 1 : category.to_i
+
+    # Create an array of nearest childs of category
+    @categories = Category.where(category_id: category)
+
+    # Create ancestors path
+    @category_seq = [Category.find(category)]
+    until @category_seq.first.id == 1
+      @category_seq.unshift( Category.find(@category_seq[0].category_id) )
+    end
+
+    # Create an array of all childs
+    subcategories = get_subc( @category_seq.last )
+
+    # Create an array of all products which belongs to category
+    @items = Product.where(category_id: @category_seq.last.id)
+    subcategories.each do |c|
+      Product.where(category_id: c.id).each { |p| @items.push p }
+    end
+
 	end
 
 	# output single Product by ID
@@ -60,4 +80,13 @@ class ProductsController < ApplicationController
     	@item = Product.where(id: params[:id]).first
     	render_404 unless @item
     end
+
+    # Selects all subcategories which are childs of category parametr
+    def get_subc(category)
+    retval = []
+    Category.where(category_id: category.id).each do |c| 
+      retval += [c] + get_subc(c)
+    end
+    retval
+  end
 end
