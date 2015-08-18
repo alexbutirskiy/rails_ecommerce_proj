@@ -1,29 +1,32 @@
 # Product RESTfull controller
 class ProductsController < ApplicationController
-
+  ROOT_ID = 1
 	before_filter :find_product, only: [:show, :edit, :update, :destroy]
 
 	# output list of Products
 	def index
     category = params[:category]
-    category = category == nil ? 1 : category.to_i
+    category = category == nil ? ROOT_ID : category.to_i
 
-    # Create an array of nearest childs of category
-    @categories = Category.where(category_id: category)
+    current_category = Category.find(category)
+
+    # Create an array of nearest childs of current_category
+    @categories = current_category.categories
 
     # Create ancestors path
-    @category_seq = [Category.find(category)]
-    until @category_seq.first.id == 1
-      @category_seq.unshift( Category.find(@category_seq[0].category_id) )
+    @category_seq = [current_category]
+    until @category_seq.first.id == ROOT_ID
+      @category_seq.unshift( @category_seq[0].category )
     end
 
     # Create an array of all childs
-    subcategories = get_subc( @category_seq.last )
+    subcategories = get_subc(current_category)
 
-    # Create an array of all products which belongs to category
-    @items = Product.where(category_id: @category_seq.last.id)
+    # Create an array of all products which belongs to current_category
+    @items = current_category.products.to_a
+
     subcategories.each do |c|
-      Product.where(category_id: c.id).each { |p| @items.push p }
+      c.products.each { |p| @items.push p }
     end
 
 	end
@@ -84,7 +87,8 @@ class ProductsController < ApplicationController
     # Selects all subcategories which are childs of category parametr
     def get_subc(category)
     retval = []
-    Category.where(category_id: category.id).each do |c| 
+    #Category.where(category_id: category.id).each do |c| 
+    category.categories.each do |c| 
       retval += [c] + get_subc(c)
     end
     retval
