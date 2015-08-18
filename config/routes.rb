@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/cart/:id' => 'cart#add'
 
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}
   get 'main/index'
   root 'products#index'
 
