@@ -12,53 +12,52 @@
 
 <header class="navbar">
   <div class="navbar-inner">
-    <nav>
+  
       <ul class="nav navbar-nav pull-left">
-        <li><%= link_to "About", '/main/index' %></li>
-        <li><%= link_to "Store", '/products' %></li>
+<!--        <li><%= link_to "О нас", '/main/index' %></li>    -->
+        <li><%= link_to "Склад", '/products' %></li>
         <% if can? :create, @product %>
-          <li><%= link_to "New item", '/products/new' %></li>
+          <li><%= link_to "Новый продукт", '/products/new' %></li>
         <% end %>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
-          <% if current_user && current_user.admin? %>
-              <li><%= link_to "Admin", admin_users_path %></li>
-          <% end %>
-          <li><%= link_to "Account", edit_user_registration_path %></li>
-          <li><%= link_to "Sign out", destroy_user_session_path %></li>
+          <li><%= link_to "Личный кабинет", edit_user_registration_path %></li>
+          <li><%= link_to "Выйти", destroy_user_session_path %></li>
         <% else %>
-          <li><%= link_to "Sign in", new_user_session_path %></li>
-          <li><%= link_to "Register", new_user_registration_path %></li>
+          <li><%= link_to "Зарегистрироваться", new_user_registration_path %></li>          
+          <li><%= link_to "Войти", new_user_session_path %></li>
         <% end %>
         <% if current_user && current_user.user? %>
-          <li><%= link_to "Cart", cart_path %></li>
+          <li><%= link_to "Корзина", cart_path %></li>
         <% end %>
-        
       </ul>
-    </nav>
+
+      <p class="placeholder nav"></p>
     <div class="center">
       <h1><b>SHOP ONE</b></h1>
-      <h2>You can find here all what you want</h2>
     </div>
   </div>
 </header>
 
-<div class="center">
-  <div class="main_field">
+<div class="main_field center">
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
-  <% end %>
+<% flash.each do |name, msg| %>
+  <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
+<% end %>
 
-  <%= yield %>
-
-  </div>
+<%= yield %>
 
 </div>
 
+
 <footer class="ftr">
-  <p>Designed by <%= link_to "RubySquad", "#"%></p>
+  <p>Designed by <%= link_to "RubySquad", "https://github.com/RubySquad"%></p>
+  <p>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Панель администратора", admin_users_path %>
+    <% end %>
+  </p>
 </footer>
 
 </body>

@@ -1,7 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe Product, type: :model do
-  before { @product = create(:product) }
+  before do 
+    @cat = create(:category)
+    @product = create(:product, category_id: @cat.id) 
+  end
 
   subject { @product }
 

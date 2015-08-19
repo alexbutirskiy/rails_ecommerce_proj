@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clear_cart'
   get '/cart/:id' => 'cart#add'
+  # get '/product/index' => 'product#index'
+  # get '/product/index/:id' => 'product#index'
 
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}

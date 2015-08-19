@@ -1,11 +1,36 @@
 # Product RESTfull controller
 class ProductsController < ApplicationController
+
+  ROOT_ID = 1
   authorize_resource
+
 	before_filter :find_product, only: [:show, :edit, :update, :destroy]
 
 	# output list of Products
 	def index
-		@items = Product.all
+    category = params[:category]
+    category = category == nil ? ROOT_ID : category.to_i
+
+    current_category = Category.find(category)
+
+    # Create an array of nearest childs of current_category
+    @categories = current_category.categories
+
+    # Create ancestors path
+    @category_seq = [current_category]
+    until @category_seq.first.id == ROOT_ID
+      @category_seq.unshift( @category_seq[0].category )
+    end
+
+    # Create an array of all childs
+    subcategories = get_subc(current_category)
+
+    # Create an array of all products which belongs to current_category
+    @items = current_category.products.to_a
+
+    subcategories.each do |c|
+      c.products.each { |p| @items.push p }
+    end
 	end
 
 	# output single Product by ID
@@ -53,11 +78,21 @@ class ProductsController < ApplicationController
     # permit list between create and update. Also, you can specialize
     # this method with per-user checking of permissible attributes.
     def product_params
-      params.require(:product).permit(:name, :price, :count)
+      params.require(:product).permit(:name, :price, :count, :category_id)
     end
 
     def find_product
     	@item = Product.where(id: params[:id]).first
     	render_404 unless @item
     end
+
+    # Selects all subcategories which are childs of category parametr
+    def get_subc(category)
+    retval = []
+    #Category.where(category_id: category.id).each do |c| 
+    category.categories.each do |c| 
+      retval += [c] + get_subc(c)
+    end
+    retval
+  end
 end

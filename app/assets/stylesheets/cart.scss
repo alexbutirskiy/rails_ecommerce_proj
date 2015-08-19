@@ -8,11 +8,9 @@
   margin-left:auto; 
   margin-right:auto;
   margin-top: 20px;
-  background: #f5f5f5;
   width: auto;
 
   th{
-    border: 0px solid;
     padding: 10px 50px 10px 50px;
     background: #ddd;
   }
@@ -38,7 +36,16 @@ tfoot {
   tr{
     td{
       padding-top: 20px;
+      text-align: right;
     }
   }
 }
 
+#cart_total {
+  text-align: right;
+  font-weight: bold;
+}
+
+#cart_name {
+  min-width: 200px;
+}
