@@ -1,6 +1,8 @@
 # Product RESTfull controller
 class ProductsController < ApplicationController
   ROOT_ID = 1
+  authorize_resource
+
 	before_filter :find_product, only: [:show, :edit, :update, :destroy]
 
 	# output list of Products

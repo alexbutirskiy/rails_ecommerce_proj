@@ -14,23 +14,26 @@
   <div class="navbar-inner">
   
       <ul class="nav navbar-nav pull-left">
-<!--        <li><%= link_to "About", '/main/index' %></li>    -->
+<!--        <li><%= link_to "О нас", '/main/index' %></li>    -->
         <li><%= link_to "Склад", '/products' %></li>
+        <% if can? :create, @product %>
         <li><%= link_to "Новый продукт", '/products/new' %></li>
+        <% end %>
       </ul>
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
           <li><%= link_to "Личный кабинет", edit_user_registration_path %></li>
-          <li><%= link_to "Выйти", destroy_user_session_path, method: :delete %></li>
+          <li><%= link_to "Выйти", destroy_user_session_path %></li>
         <% else %>
           <li><%= link_to "Зарегистрироваться", new_user_registration_path %></li>          
           <li><%= link_to "Войти", new_user_session_path %></li>
         <% end %>
-        <li><%= link_to "Корзина", cart_path %></li>
+        <% if current_user && current_user.user? %>
+          <li><%= link_to "Корзина", cart_path %></li>
+        <% end %>
       </ul>
 
       <p class="placeholder nav"></p>
-
     <div class="center">
       <h1><b>SHOP ONE</b></h1>
     </div>
@@ -49,8 +52,12 @@
 
 
 <footer class="ftr">
-  <p>Designed by <%= link_to "RubySquad", "#"%></p>
-  <p><%= link_to "Панель администратора", admin_users_path %></p>
+  <p>Designed by <%= link_to "RubySquad", "https://github.com/RubySquad"%></p>
+  <p>
+    <% if current_user && current_user.admin? %>
+      <%= link_to "Панель администратора", admin_users_path %>
+    <% end %>
+  </p>
 </footer>
 
 </body>

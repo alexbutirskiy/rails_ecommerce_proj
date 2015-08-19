@@ -6,9 +6,8 @@ Rails.application.routes.draw do
   # get '/product/index' => 'product#index'
   # get '/product/index/:id' => 'product#index'
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}
   get 'main/index'
   root 'products#index'
 
