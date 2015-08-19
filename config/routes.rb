@@ -4,9 +4,8 @@ Rails.application.routes.draw do
   get '/cart/clear' => 'cart#clear_cart'
   get '/cart/:id' => 'cart#add'
 
-  devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
-  devise_for :users
+  devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}
   get 'main/index'
   root 'products#index'
 
