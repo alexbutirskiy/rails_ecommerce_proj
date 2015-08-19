@@ -2,10 +2,8 @@ require 'rails_helper'
 
 RSpec.describe ProductsController, type: :controller do
 
-	
 
 	it_renders_404_page_when_product_is_not_found :show, :edit, :update, :destroy
-
 	describe "show action" do
 		it "renders show template if a product is found" do
 			product = create(:product)

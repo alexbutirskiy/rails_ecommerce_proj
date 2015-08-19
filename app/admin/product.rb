@@ -1,27 +1,15 @@
 ActiveAdmin.register Product do
 
-
-  # See permitted parameters documentation:
-  # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
-  #
-  # permit_params :list, :of, :attributes, :on, :model
-  #
-  # or
-  #
-  # permit_params do
-  #   permitted = [:permitted, :attributes]
-  #   permitted << :other if resource.something?
-  #   permitted
-  # end
-
   menu label: "Товары", priority: 2
 
-  permit_params :name, :price, :count, :category_id
+  permit_params :name, :price, :count, :category_id, :producer_id, :retailer_id
 
   index :title => 'Товары' do
     selectable_column
     column "Наименование",        :name
     column "Категория",           :category
+    column "Производитель",       :producer
+    column "Магазин",             :retailer
     column "Цена",                :price
     column "Кол-во в наличии",    :count
     column "Последнее изменение", :updated_at
@@ -33,6 +21,8 @@ ActiveAdmin.register Product do
     inputs "Свойства товара" do
       f.input :name,  label: "Наименование"
       f.input :category,  label: "Категория"
+      f.input :producer,  label: "Производитель"
+      f.input :retailer,  label: "Магазин"
       f.input :price, label: "Цена"
       f.input :count, label: "Кол-во в наличии"
     end

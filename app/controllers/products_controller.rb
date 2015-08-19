@@ -28,7 +28,6 @@ class ProductsController < ApplicationController
     subcategories.each do |c|
       c.products.each { |p| @items.push p }
     end
-
 	end
 
 	# output single Product by ID
