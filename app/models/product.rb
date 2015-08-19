@@ -6,4 +6,8 @@ class Product < ActiveRecord::Base
                     :styles => { :small => "200x200>", :thumb => "75x75>" },
                     :default_url => 'Image_missing_:style.jpg'
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
+  validates :category_id, presence: true
+  belongs_to :category
+  belongs_to :producer
+  belongs_to :retailer
 end

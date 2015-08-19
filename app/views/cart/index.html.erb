@@ -10,7 +10,7 @@
 <table class="Cart">
 <tr>
   <th>Image</th>
-  <th>Name</th>
+  <th id="cart_name">Name</th>
   <th>Price</th>
   <th>Quantity</th>
   <th>Sum</th>
@@ -33,7 +33,7 @@
 
 <tfoot>
   <tr>
-    <td colspan="4"><strong class="text-align: right">Total:</strong> </td>
+    <td colspan="4" id="cart_total">Total:</td>
     <td>
       <b><%= number_to_currency(total, unit: 'грн.', format: '%n %u')%></b>
     </td>

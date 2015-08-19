@@ -26,6 +26,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise', '~> 3.5.2'
+gem 'cancancan', '~> 1.12.0'
 
 # It's not release version which supports Rails 4
 gem 'activeadmin', '~> 1.0.0.pre1'
