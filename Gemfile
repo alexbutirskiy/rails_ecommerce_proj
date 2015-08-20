@@ -33,6 +33,8 @@ gem 'activeadmin', '~> 1.0.0.pre1'
 
 gem 'paperclip'
 
+gem 'kaminari', '= 0.16.3'
+
 # gem 'mailcatcher'
 
 # Use ActiveModel has_secure_password
@@ -48,7 +50,7 @@ gem 'bootstrap-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'byebug', '= 6.0.0'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 

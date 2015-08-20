@@ -106,6 +106,7 @@ aside.left-side {
   background: #eef;
   width: 64%;
   min-width: 300px;
+  vertical-align: baseline;
 
   th{
     font-size: 120%;
@@ -151,5 +152,13 @@ aside.left-side {
   padding: 10px;
   a {
     margin: 20px;
+  }
+}
+
+#paginator {
+  margin-right: 2%;
+  padding-right: 0;
+  .last a{
+    margin-right: 0;
   }
 }

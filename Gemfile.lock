@@ -311,7 +311,7 @@ DEPENDENCIES
   activeadmin (~> 1.0.0.pre1)
   better_errors
   bootstrap-sass
-  byebug
+  byebug (= 6.0.0)
   cancancan (~> 1.12.0)
   capybara
   capybara-screenshot
@@ -321,6 +321,7 @@ DEPENDENCIES
   factory_girl_rails
   jbuilder (~> 2.0)
   jquery-rails
+  kaminari (= 0.16.3)
   paperclip
   pg
   poltergeist
