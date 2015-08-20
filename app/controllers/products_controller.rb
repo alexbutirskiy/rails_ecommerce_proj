@@ -32,7 +32,12 @@ class ProductsController < ApplicationController
       c.products.each { |p| @items.push p }
     end
 
-    @items = Kaminari.paginate_array(@items).page(params[:page]).per(1)
+Kaminari.configure do |config| 
+ config.page_method_name = :plant # :) 
+end
+
+
+    @items = Kaminari.paginate_array(@items).page(params[:page]).per(7)
     #puts
 
     respond_to do |format|
