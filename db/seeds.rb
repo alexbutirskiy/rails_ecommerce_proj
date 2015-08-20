@@ -40,6 +40,4 @@ Product.create!([
   {name: "Картошка", price: 4.56, count: 120, category_id: 17, producer_id: nil, retailer_id: 2},
   {name: "Гречка", price: 10.5, count: 15, category_id: 1, producer_id: 1, retailer_id: 1}
 ])
-User.create!([
-  {email: "admin@example.com", role: "admin", password: "$2a$10$L6TejhR6SQsTCJ/riMR0AOYrHxKOnoLaGvRHr8LAEbHAmKiM/fs7K", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2015-08-11 12:46:02", last_sign_in_at: "2015-08-11 12:37:33", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1"},
-])
+
