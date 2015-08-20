@@ -1,10 +1,12 @@
 <h2>Edit product</h2>
 
-<%= form_for @item do |f| %>
+<%= form_for @item, :html => { :multipart => true } do |f| %>
 
 	<p>Product name:<br/><%= f.text_field :name %></p>
 	<p>Product price:<br/><%= f.text_field :price %></p>
 	<p>Quantity:<br/><%= f.text_field :count %></p>
+
+  <p><%= f.file_field :image %></p>
 
 	<p><%= f.submit "Edit product" %></p>
 
