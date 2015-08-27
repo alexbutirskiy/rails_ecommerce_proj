@@ -3,7 +3,7 @@ require 'rails_helper'
 describe 'index page' do
   it 'should load index page', :js => true do
     visit main_index_path
-    assert page.has_content?('SHOP ONE')
+    assert page.has_content?('STORE ONE')
     assert current_path, '/'
     end
 
