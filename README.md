@@ -1,4 +1,4 @@
-# [Company Website and E-commerce store]()
+# [Company Website and E-commerce store](https://git.heroku.com/infinite-peak-5602.git)
 
 ## Project notes
 
@@ -12,3 +12,7 @@
 
 ## Project description
 The aim of this project is creating an on-line store this smart modern design.
+
+Logins:
+admin@example.com       password
+customer@example.com    password
