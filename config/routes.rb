@@ -1,17 +1,19 @@
 Rails.application.routes.draw do
   
+  get 'main/index'
+  get 'main/home'
+  root 'products#index'
   get '/cart' => 'cart#index'
   get '/cart/clear' => 'cart#clear_cart'
   get '/cart/:id' => 'cart#add'
-  # get '/product/index' => 'product#index'
-  # get '/product/index/:id' => 'product#index'
+  
+  resources :products
 
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}
-  get 'main/index'
-  root 'products#index'
 
-  resources :products
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
