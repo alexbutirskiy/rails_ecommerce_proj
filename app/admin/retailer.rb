@@ -1,14 +1,14 @@
 ActiveAdmin.register Retailer do
 
-  menu label: "Магазины", priority: 5
+  menu label: "Retailers", priority: 5
 
   permit_params :name
 
 
-  index :title => 'Магазины' do
+  index :title => 'Retailers' do
     selectable_column
-    column "Название",            :name
-    column "Последнее изменение", :updated_at
+    column :name
+    column :updated_at
     actions
   end
 

@@ -1,5 +1,5 @@
 Category.create!([
-  {name: "Все", category_id: nil},
+  {name: "All", category_id: nil},
   {name: "Мясо/Рыба/Яйца", category_id: 1},
   {name: "Молочная продукция", category_id: 1},
   {name: "Молоко", category_id: 3},
@@ -48,7 +48,7 @@ Product.create!([
 ])
 
 user = User.new
-user.email = 'admin@shop.rubysquad.pp.ua'
+user.email = 'admin@example.com'
 user.role = 'admin'
 user.password = 'password'
 user.password_confirmation = 'password'
