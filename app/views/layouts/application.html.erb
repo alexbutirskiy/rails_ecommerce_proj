@@ -18,26 +18,33 @@
         <li><%= link_to "About Us", main_index_path %></li>
         <li><%= link_to "Store", products_path %></li>
         <li><%= link_to "Galery", products_path %></li>
+        <% if !(user_signed_in? && current_user && current_user.admin?)%>
+          <li><%= link_to "Check out", cart_path %></li>
+          <li><%= link_to "Contact Us", new_feedback_path %></li>
+        <% end %>
+
+      </ul>
+      <ul class="nav navbar-nav pull-right">
         <% if can? :create, @product %>
           <li><%= link_to "New Good", new_product_path %></li>
         <% end %>
-      </ul>
-      <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
 
-        <% if current_user && current_user.admin? %>
-          <li><%= link_to "Admin's dashboard", admin_users_path %></li>
-        <%else%>
-          <li><%= link_to "User account", edit_user_registration_path %></li>
-        <% end %>
+          <% if current_user && current_user.admin? %>
+            <li><%= link_to "Admin's dashboard", admin_users_path %></li>
+          <%else%>
+            <li><%= link_to "Contact Us", feedbacks_path %></li>
+            <li><%= link_to "User account", edit_user_registration_path %></li>
+          <% end %>
 
           <li><%= link_to "Sign Out", destroy_user_session_path %></li>
+
         <% else %>
           <li><%= link_to "Sign Up", new_user_registration_path %></li>          
           <li><%= link_to "Sign In", new_user_session_path %></li>
         <% end %>
         <% if current_user && current_user.user? %>
-          <li><%= link_to "Cart", cart_path %></li>
+          
         <% end %>
       </ul>
 

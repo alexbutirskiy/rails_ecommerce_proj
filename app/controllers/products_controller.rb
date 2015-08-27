@@ -2,7 +2,7 @@
 class ProductsController < ApplicationController
 
   ROOT_ID = 1
-  authorize_resource
+  #authorize_resource
 
 	before_filter :find_product, only: [:show, :edit, :update, :destroy]
 

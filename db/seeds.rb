@@ -55,3 +55,12 @@ user.password_confirmation = 'password'
 user.skip_confirmation_notification!
 user.confirmed_at = Time.now.to_formatted_s(:db)
 user.save!
+
+user = User.new
+user.email = 'customer@example.com'
+user.role = 'user'
+user.password = 'password'
+user.password_confirmation = 'password'
+user.skip_confirmation_notification!
+user.confirmed_at = Time.now.to_formatted_s(:db)
+user.save!

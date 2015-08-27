@@ -1,8 +1,6 @@
 #Cart controller
 class CartController < ApplicationController
   def index
-    authorize! :index, :cart
-    # Binding.byebug
     if session[:cart]
       @cart = session[:cart]
     else
@@ -11,12 +9,10 @@ class CartController < ApplicationController
   end
 
   def add
-    authorize! :add, :cart
+    #authorize! :add, :cart
     id = params[:id]
-#    Binding.byebug
-    # unless session[:cart]
-      session[:cart] ||= {}
-    # end
+    session[:cart] ||= {}
+
     cart = session[:cart]
     if cart[id]
       cart[id] += 1
@@ -25,6 +21,14 @@ class CartController < ApplicationController
     end
     redirect_to action: :index
   end
+
+  def submit
+    session[:cart].each do
+      |p, q| puts "#{Product.find(p).name}, #{q}" if p != "submit"
+    end
+    redirect_to root_path
+  end
+
 
   def clear_cart
     authorize! :clear_cart, :cart

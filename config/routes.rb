@@ -4,10 +4,12 @@ Rails.application.routes.draw do
   get 'main/home'
   root 'products#index'
   get '/cart' => 'cart#index'
+  post '/cart/submit' => 'cart#submit'
   get '/cart/clear' => 'cart#clear_cart'
   get '/cart/:id' => 'cart#add'
   
   resources :products
+  resources :feedbacks, only: [:new, :create]
 
   ActiveAdmin.routes(self)
   devise_for :users, controllers: {sessions: 'users/sessions', registrations: 'users/registrations', passwords: 'users/passwords'}

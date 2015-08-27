@@ -1,0 +1,23 @@
+
+<div id="feedback_page">
+<h2>Feel free to contact us:</h2>
+
+<p>
+  <ul>
+    <li>Phone: +1 54 33 455 44 55</li>
+    <li>Fax: +1 54 33 455 44 55</li>
+    <li>email: <a href="mailto:feedback@store_one.com?Subject=Feedback" target="_top">feedback@store_one.com</a></li>
+  </ul>
+</p>
+<br>
+<br>
+<p id="feedback_form">
+  <h4>or fill this form:</h4>
+  <%= form_for @feedback, :html => { :multipart => true }  do |f| %>
+
+    <p>Subject:<br/><%= f.text_field :subj %></p>
+    <p>Text:<br/><%= f.text_area :msg %></p>
+    <p><%= f.submit "Send feedback" %></p>
+  <% end %>
+</p>
+</div>
