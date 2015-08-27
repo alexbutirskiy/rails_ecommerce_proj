@@ -9,45 +9,15 @@
 
 <aside class="left-side">
 <!--  Just a wireframe -->
-	<h3>Категория</h3>
+	<h3>Categories</h3>
 	<ul>
 		<% @categories.each do |c| %>
 			<li> <%=  link_to "#{c.name}", products_path(category: c.id) %> </li>
 		<% end %>
 	</ul>
 
-	<h3>Фильтры</h3>
-
-	<h4>Производитель</h4>
-	<%= check_box_tag(:producer_all, 'producer_all', true) %>
-	<%= label_tag(:producer_all, "Выделить все") %>
-
-	<%= check_box_tag(:producer1, 'producer1', true) %>
-	<%= label_tag(:producer1, "Производитель 1") %>
-
-	<%= check_box_tag(:producer2, 'producer2', true) %>
-	<%= label_tag(:producer2, "Производитель 2") %>
-
-	<%= check_box_tag(:producer3, 'producer3', true) %>
-	<%= label_tag(:producer3, "Производитель 3") %>
-
-
-
-	<h4>Магазин</h4>
-	<%= check_box_tag(:store_all, 'store_all', true, class: 'semi_accepted') %>
-	<%= label_tag(:store_all, "Выделить все") %>
-
-	<%= check_box_tag(:store1, 'store1', true) %>
-	<%= label_tag(:store1, "Магазин 1") %>
-
-	<%= check_box_tag(:store2, 'store2', true) %>
-	<%= label_tag(:store2, "Магазин 2") %>
-
-	<%= check_box_tag(:store3, 'store3', true) %>
-	<%= label_tag(:store3, "Магазин 3") %>
-
 </aside>
-<h2> Товары </h2>
+<h2> Goods </h2>
 
 <div id="product_list">
 	<%= render "product" %>
